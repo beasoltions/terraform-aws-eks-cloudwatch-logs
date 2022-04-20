@@ -9,15 +9,34 @@ Terraform module for deploying AWS Fluent Bit as a daemonSet to send logs to Clo
 ## Usage
 
 ```
+provider "kubernetes" {
+  alias                  = "eks"
+  host                   = data.aws_eks_cluster.cluster.endpoint
+  token                  = data.aws_eks_cluster_auth.cluster.token
+  cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority.0.data)
+}
+
+provider "helm" {
+  alias = "eks"
+  kubernetes {
+    host                   = data.aws_eks_cluster.cluster.endpoint
+    token                  = data.aws_eks_cluster_auth.cluster.token
+    cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority[0].data)
+  }
+}
 module "cloudwatch_logs" {
-  source = "git::https://github.com/DNXLabs/terraform-aws-eks-cloudwatch-logs.git"
+  source = "git::https://github.com/getmiso/terraform-aws-eks-cloudwatch-logs.git"
 
   enabled = true
+  providers = {
+    kubernetes = kubernetes.eks
+    helm       = helm.eks
+  }
 
-  cluster_name                     = module.eks_cluster.cluster_id
-  cluster_identity_oidc_issuer     = module.eks_cluster.cluster_oidc_issuer_url
-  cluster_identity_oidc_issuer_arn = module.eks_cluster.oidc_provider_arn
-  worker_iam_role_name             = module.eks_cluster.worker_iam_role_name
+  cluster_name                     = module.eks.cluster_id
+  cluster_identity_oidc_issuer     = module.eks.cluster_oidc_issuer_url
+  cluster_identity_oidc_issuer_arn = module.eks.oidc_provider_arn
+  worker_iam_role_name             = module.eks.worker_iam_role_name
   region                           = data.aws_region.current.name
 }
 ```
