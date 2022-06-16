@@ -11,24 +11,23 @@ additionalFilters: |
       Wildcard            pod_name
       Operation lift
       Nested_under kubernetes
-      Add_prefix   eks_
   [FILTER]
       Name                grep
       Match               kube.*
-      Exclude             eks_namespace_name kube-system
+      Exclude             namespace_name kube-system
   [FILTER]
       Name                grep
       Match               kube.*
-      Exclude             eks_namespace_name aws-cloudwatch-logs
+      Exclude             namespace_name aws-cloudwatch-logs
   [FILTER]
       Name                grep
       Match               kube.*
-      Exclude             eks_namespace_name kube-external-secrets
+      Exclude             namespace_name kube-external-secrets
   [FILTER]
       Name                grep
       Match               kube.*
-      Exclude             eks_namespace_name kube-node-lease
+      Exclude             namespace_name kube-node-lease
   [FILTER]
       Name                grep
       Match               kube.*
-      Exclude             eks_namespace_name kube-public
+      Exclude             namespace_name kube-public
