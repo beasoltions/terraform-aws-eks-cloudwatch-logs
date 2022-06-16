@@ -43,6 +43,6 @@ resource "helm_release" "cloudwatch_logs" {
   }
 
   values = [
-    templatefile("${path.module}/templates/fluent-bit.yaml"),
+    templatefile("${path.module}/templates/values.yaml"),
   ]
 }
