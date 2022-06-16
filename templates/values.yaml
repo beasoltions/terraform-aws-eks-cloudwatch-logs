@@ -1,0 +1,18 @@
+# Grep Filter drops logs that are only whitespace.
+# Kubernetes Filter appends K8s information to all outgoing logs.
+additionalFilters: |
+  [FILTER]
+      Name  grep
+      Match *
+      Regex $log (.|\s)*\S(.|\s)*
+  [FILTER]
+      Name                nest
+      Match               *
+      Wildcard            pod_name
+      Operation lift
+      Nested_under kubernetes
+      Add_prefix   kubernetes_
+  [FILTER]
+      Name                grep
+      Match               kube.*
+      Exclude             kubernetes_namespace_name kube-system
