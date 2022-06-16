@@ -94,6 +94,12 @@ variable "elasticsearch_enabled" {
   default     = false
 }
 
+variable "logRetentionDays" {
+  type        = number
+  description = "Number of days that the log is kept alive"
+  default     = 30
+}
+
 variable "settings" {
   default     = {}
   description = "Additional settings which will be passed to the Helm chart values."

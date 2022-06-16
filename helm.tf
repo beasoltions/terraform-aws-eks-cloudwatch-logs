@@ -23,6 +23,11 @@ resource "helm_release" "cloudwatch_logs" {
   }
 
   set {
+    name  = "cloudWatch.logRetentionDays"
+    value = var.logRetentionDays
+  }
+
+  set {
     name  = "cloudWatch.logGroupName"
     value = "/aws/eks/${var.cluster_name}/$(namespace_name)/$(container_name)"
   }
