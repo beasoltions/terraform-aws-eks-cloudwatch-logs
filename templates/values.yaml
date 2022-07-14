@@ -31,3 +31,12 @@ additionalFilters: |
       Name                grep
       Match               kube.*
       Exclude             namespace_name kube-public
+  [FILTER]
+      Name                record_modifier
+      Match               kube.*
+      Remove_key          container_hash
+      Remove_key          pod_name
+      Remove_key          docker_id
+      Remove_key          labels
+      Remove_key          annotations
+      Remove_key          pod_id
