@@ -34,7 +34,11 @@ additionalFilters: |
   [FILTER]
       Name                grep
       Match               kube.*
-      Exclude             namespace_name datadog
+      Exclude             container_name datadog-agent
+  [FILTER]
+      Name                grep
+      Match               kube.*
+      Exclude             container_name datadog-cluster-agent
   [FILTER]
       Name                record_modifier
       Match               kube.*
