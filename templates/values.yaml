@@ -32,6 +32,10 @@ additionalFilters: |
       Match               kube.*
       Exclude             namespace_name kube-public
   [FILTER]
+      Name                grep
+      Match               kube.*
+      Exclude             namespace_name datadog
+  [FILTER]
       Name                record_modifier
       Match               kube.*
       Remove_key          container_hash
