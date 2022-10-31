@@ -44,3 +44,12 @@ additionalFilters: |
       Remove_key          labels
       Remove_key          annotations
       Remove_key          pod_id
+      Remove_key          @ingestionTime
+      Remove_key          @ingestionTime
+      Remove_key          @log
+      Remove_key          @logStream
+      Remove_key          @message
+      Remove_key          container_image
+      Remove_key          host
+      Remove_key          stream
+      Remove_key          time
