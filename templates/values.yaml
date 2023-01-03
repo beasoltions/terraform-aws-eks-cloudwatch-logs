@@ -22,7 +22,7 @@ additionalFilters: |
   [FILTER]
       Name                grep
       Match               kube.*
-      Exclude             namespace_name kube-external-secrets
+      Exclude             namespace_name external-secrets
   [FILTER]
       Name                grep
       Match               kube.*
