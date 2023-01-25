@@ -3,7 +3,7 @@ terraform {
 
   required_providers {
     aws        = ">= 3.13, < 4.0"
-    helm       = ">= 1.0, < 3.0"
+    helm       = ">= 1.0, < 3.1"
     kubernetes = ">= 1.10.0, < 3.0.0"
   }
 }
