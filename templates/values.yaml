@@ -36,6 +36,10 @@ additionalFilters: |
       Match               kube.*
       Exclude             namespace_name default
   [FILTER]
+      Name                grep
+      Match               kube.*
+      Exclude             stream stdout
+  [FILTER]
       Name                record_modifier
       Match               kube.*
       Remove_key          container_hash
@@ -50,5 +54,4 @@ additionalFilters: |
       Remove_key          @logStream
       Remove_key          container_image
       Remove_key          host
-      Remove_key          stream
       Remove_key          time
