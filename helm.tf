@@ -26,6 +26,10 @@ resource "helm_release" "cloudwatch_logs" {
     name  = "cloudWatch.logGroupName"
     value = "/aws/eks/${var.cluster_name}/$(namespace_name)/$(container_name)"
   }
+  set {
+    name  = "cloudWatch.logKey"
+    value = var.logKey
+  }
 
   set {
     name  = "firehose.enabled"

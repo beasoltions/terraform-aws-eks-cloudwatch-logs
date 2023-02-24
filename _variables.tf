@@ -99,6 +99,11 @@ variable "logRetentionDays" {
   description = "Number of days that the log is kept alive"
   default     = 30
 }
+variable "logKey" {
+  type        = string
+  description = "If you specify a key name with this option, then only the value of that key will be sent to CloudWatch."
+  default     = "log"
+}
 
 variable "settings" {
   default     = {}
