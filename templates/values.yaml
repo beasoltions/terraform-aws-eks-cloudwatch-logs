@@ -39,7 +39,6 @@ additionalFilters: |
       Name                record_modifier
       Match               kube.*
       Remove_key          container_hash
-      Remove_key          pod_name
       Remove_key          docker_id
       Remove_key          labels
       Remove_key          annotations
