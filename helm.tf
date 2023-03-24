@@ -27,6 +27,18 @@ resource "helm_release" "cloudwatch_logs" {
     value = "/aws/eks/${var.stage}/$(namespace_name)/$(container_name)"
   }
   set {
+    name  = "cloudWatch.logStreamName"
+    value = "$(strftime('%Y-%m-%d', time()))"
+  }
+  set {
+    name  = "cloudWatch.logStreamPrefix"
+    value = "$(container_name)-"
+  }
+  set {
+    name  = "cloudWatch.logRetentionDays"
+    value = var.logRetentionDays
+  }
+  set {
     name  = "cloudWatch.logKey"
     value = var.logKey
   }
