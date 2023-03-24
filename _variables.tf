@@ -9,6 +9,11 @@ variable "cluster_name" {
   description = "The name of the cluster."
 }
 
+variable "stage" {
+  type        = string
+  description = "The name of the cluster."
+}
+
 variable "region" {
   type        = string
   description = "The region for Fluent Bit Cloudwatch Logs"
