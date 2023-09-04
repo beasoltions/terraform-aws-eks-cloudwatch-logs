@@ -26,6 +26,10 @@ additionalFilters: |
   [FILTER]
       Name                grep
       Match               kube.*
+      Exclude             namespace_name alb
+  [FILTER]
+      Name                grep
+      Match               kube.*
       Exclude             namespace_name efs-sci
   [FILTER]
       Name                grep
