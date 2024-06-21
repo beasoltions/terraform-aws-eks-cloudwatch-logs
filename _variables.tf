@@ -114,3 +114,9 @@ variable "settings" {
   default     = {}
   description = "Additional settings which will be passed to the Helm chart values."
 }
+
+variable "values" {
+  type        = string
+  default     = ""
+  description = "Additional yaml encoded values which will be passed to the Helm chart, see https://github.com/kubernetes-sigs/aws-ebs-csi-driver/tree/master/charts/aws-ebs-csi-driver"
+}
