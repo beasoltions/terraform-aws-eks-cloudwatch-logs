@@ -59,6 +59,7 @@ resource "helm_release" "cloudwatch_logs" {
   }
 
   values = [
-    data.utils_deep_merge_yaml.values[0].output
+    templatefile("${path.module}/templates/values.yaml", {}),
+    var.values
   ]
 }
