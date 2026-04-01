@@ -24,7 +24,7 @@ resource "helm_release" "cloudwatch_logs" {
 
   set {
     name  = "cloudWatch.logGroupName"
-    value = "/aws/eks/${var.stage}/$(namespace_name)/$(container_name)"
+    value = "/aws/containerinsights/optomapp/$(namespace_name)/$(container_name)"
   }
   set {
     name  = "cloudWatch.logStreamPrefix"
